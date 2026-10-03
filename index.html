@@ -1,10 +1,171 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My GitHub Pages Site</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shajnin Howlader Portfolio</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <h1>Hello World!</h1>
-    <p>Welcome to my brand new website.</p>
+
+    <!-- background/light layers-->
+
+    <div id="scene"></div>
+    <div id="dark-mask"></div>
+    <div id="light-effect"></div>
+
+
+    <!-- sound -->
+
+    <audio id="ambient" loop>
+        <source src="ambient.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="click">
+        <source src="click.mp3" type="audio/mpeg">
+    </audio>
+
+
+    <!-- sound button -->
+    <button id="sound-button" type="button">
+        🔇
+    </button>
+
+
+    <!-- intro screen -->
+    <main class="fade-in">
+        <h1>It's dark out here... grab a light</h1>
+        <p>Pick a flashlight to light your way.</p>
+        <div id="flashlight-choices">
+            <button
+                class="flashlight-option-1"
+                type="button">
+                Bright White
+            </button>
+            <button
+                class="flashlight-option-2"
+                type="button">
+                Ember Orange
+            </button>
+        </div>
+    </main>
+
+
+    <!-- trail objects clickable -->
+
+    <div id="scene-hotspots">
+        <button
+            id="info-hotspot"
+            class="scene-hotspot"
+            type="button"
+            aria-label="Information board">
+        </button>
+        <button
+            id="poster-hotspot"
+            class="scene-hotspot"
+            type="button"
+            aria-label="Missing poster">
+        </button>
+        <button
+            id="phone-hotspot"
+            class="scene-hotspot"
+            type="button"
+            aria-label="Phone booth">
+        </button>
+    </div>
+
+
+    <!-- object path/screens -->
+    <div id="content-screen">
+        <button
+            id="back-button"
+            type="button">
+            ← Back
+        </button>
+
+        <!-- Information Board -->
+        <section
+            id="info-page"
+            class="object-page">
+            <h2>About Me</h2>
+            <p>I’m driven by real-world problems that can be tackled through software development. With a growing foundation in technical and research skills, I’ve found purpose in combining my passion for improving human experiences and promoting eco-sustainability. My mission is to keep exploring where technology meets impact, building connections, learning by doing, and contributing to solutions that make a meaningful difference.</p>
+            <br>
+            <iframe src="resume.pdf" width="100%" height="600px">
+  This browser does not support PDFs. Please download the PDF to view it: <a href="resume.pdf">Download PDF</a>
+</iframe>
+
+        </section>
+
+        <!-- Missing Poster -->
+        <section
+            id="poster-page"
+            class="object-page">
+            <h2>Projects and Interests</h2>
+            <p> Current Focus: </p>
+            <ul>
+                <li>Computer Science with a focus on software development</li>
+                <li>Gaining UI/UX design experience</li>
+                <li>Expanding my skills in game design for non game app purposes</li>
+                <li>Expanding my skills in data analysis and visualization</li>
+            </ul>
+            <br>
+
+            <h3>Past projects:</h3>
+            <br>
+
+            <h4> Next Nest </h4>
+                <ul>
+                    <li>Designed as a tool to help users explore and compare potential cities to move to within the U.S., offering a stepping stone toward informed relocation decisions.</li>
+                    <li>Integrates 3 external APIs to deliver real-time data on weather averages, job markets, and AI-generated recommendations of what life looks like in the selected city.</li>
+                    <li>Built with a React front-end, Flask back-end, and Python for API processing and logic handling.</li>
+                    <li>Collaborated with a team of 4, taking on both development and coordination responsibilities throughout the project.</li>
+                    <li>Currently scaling the app with plans to expand coverage to international cities and improve filtering features for lifestyle preferences.</li>
+                </ul>
+                <br>
+                <h4> MLB Hunch </h4>
+                <ul> 
+                    <li>Designed to provide users with MLB team information, including location, last game, schedule, and roster; predict winners; identify the most exciting upcoming matchup; and store and view past predictions in a local database.</li> 
+                    <li>Utilizes two APIs to source MLB team information and AI-generated responses.</li> 
+                    <li>Collaborated with one other team member to develop and coordinate this command-line app project.</li> </ul>
+                <br>
+                    <h4> SleepBetter </h4>
+                <ul> <li>Designed as an effective tool to help users get the most out of their sleep.</li> 
+                    <li>Analyzes sleep and wake-up times, calculates total sleep duration, breaks it down into 90-minute sleep cycles, and shows when each cycle ends.</li> 
+                </ul>
+
+
+
+            
+        </section>
+
+
+        <!-- Phone Booth -->
+
+        <section
+            id="phone-page"
+            class="object-page">
+
+            <p> Connect with me on <a href="https://www.linkedin.com/in/shajnin-howlader/" target="_blank">
+    LinkedIn!
+                
+</a>
+<br>
+
+<p>You can find my projects and what I'm working on at my <a href="https://github.com/Shajninh" target="_blank">
+    GitHub! </p>
+
+</a></h2>
+
+        </section>
+
+    </div>
+
+
+    <!-- javascript -->
+
+    <script src="main.js"></script>
+
 </body>
 </html>

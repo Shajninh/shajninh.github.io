@@ -1,0 +1,413 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Body */
+
+body {
+    background: #000;
+    color: white;
+
+    overflow: hidden;
+
+    font-family: Arial, sans-serif;
+
+    cursor: default;
+}
+
+
+/* background scene, after black plain */
+
+#scene {
+    position: fixed;
+
+    inset: 0;
+
+    background-image: url("background.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    opacity: 0;
+
+    z-index: 0;
+
+    transition: opacity 2s ease;
+
+    pointer-events: none;
+}
+
+
+/* Background becomes visible */
+
+#scene.scene-visible {
+    opacity: 1;
+}
+
+
+/* Dark mask on background image*/
+
+#dark-mask {
+    position: fixed;
+
+    inset: 0;
+
+    background: #000;
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    transition: opacity 0.5s ease;
+}
+
+
+/* flashlight */
+
+#light-effect {
+    position: fixed;
+
+    width: 350px;
+    height: 350px;
+
+    border-radius: 50%;
+
+    transform: translate(-50%, -50%);
+
+    pointer-events: none;
+
+    z-index: 2;
+
+    opacity: 0;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 255, 255, 1) 0%,
+            rgba(255, 255, 255, 0.65) 20%,
+            rgba(255, 255, 255, 0.25) 45%,
+            transparent 72%
+        );
+
+    transition:
+        opacity 0.4s ease,
+        background 0.4s ease;
+}
+
+
+/* intro scene */
+
+.fade-in {
+    position: relative;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    z-index: 10;
+
+    opacity: 1;
+
+    transition: opacity 1s ease;
+}
+
+
+/* Hide intro after flashlight is selected */
+
+.fade-in.hidden {
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+
+/* intro text*/
+
+h1 {
+    font-size: 50px;
+
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 20px;
+}
+
+
+/* flashlight options */
+
+#flashlight-choices {
+    display: flex;
+
+    gap: 15px;
+
+    justify-content: center;
+
+    margin-top: 25px;
+}
+
+
+.flashlight-option-1,
+.flashlight-option-2 {
+    background: transparent;
+
+    color: #ddd;
+
+    border: 1px solid #666;
+
+    padding: 14px 22px;
+
+    font-family: inherit;
+
+    font-size: 1rem;
+
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease,
+        border-color 0.2s ease,
+        background-color 0.2s ease;
+}
+
+
+.flashlight-option-1:hover,
+.flashlight-option-2:hover {
+    color: white;
+
+    border-color: white;
+
+    background: rgba(255, 255, 255, 0.05);
+}
+
+
+/* sound button */
+
+#sound-button {
+    position: fixed;
+
+    top: 20px;
+    right: 20px;
+
+    width: 45px;
+    height: 45px;
+
+    background: rgba(14, 13, 13, 0.85);
+
+    color: white;
+
+    border: 1px solid #666;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    z-index: 30;
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease;
+}
+
+
+#sound-button:hover {
+    border-color: white;
+
+    background: rgba(30, 30, 30, 0.95);
+}
+
+
+/* scene button spots*/
+
+#scene-hotspots {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 5;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition: opacity 0.5s ease;
+}
+
+
+/* Activate after flashlight selection */
+
+#scene-hotspots.active {
+    opacity: 1;
+
+    pointer-events: auto;
+}
+
+
+/* Generic hotspot */
+
+.scene-hotspot {
+    position: absolute;
+
+    background: transparent;
+
+    border: none;
+
+    cursor: pointer;
+
+    padding: 0;
+}
+
+
+
+/* hot spot locations for the objects in pathway */
+
+
+#info-hotspot {
+    left: 10%;
+
+    top: 45%;
+
+    width: 18%;
+
+    height: 25%;
+}
+
+
+/* Missing poster on tree */
+
+#poster-hotspot {
+    left: 47%;
+
+    top: 20%;
+
+    width: 12%;
+
+    height: 25%;
+}
+
+
+/* Phone booth */
+
+#phone-hotspot {
+    left: 72%;
+
+    top: 35%;
+
+    width: 15%;
+
+    height: 40%;
+}
+
+
+/* content screen */
+
+#content-screen {
+    position: fixed;
+
+    inset: 0;
+
+    background: #0e0d0d;
+
+    color: white;
+
+    z-index: 100;
+
+    display: none;
+
+    padding: 80px;
+
+    overflow-y: auto;
+}
+
+
+/* Show content screen */
+
+#content-screen.active {
+    display: block;
+}
+
+
+/* object pages */
+
+.object-page {
+    display: none;
+
+    max-width: 900px;
+
+    margin: 0 auto;
+
+    padding-top: 50px;
+}
+
+
+/* Show selected object page */
+
+.object-page.active {
+    display: block;
+}
+
+
+/* Object page heading */
+
+.object-page h2 {
+    font-size: 42px;
+
+    margin-bottom: 20px;
+}
+
+
+/* Object page paragraph */
+
+.object-page p {
+    font-size: 18px;
+
+    line-height: 1.6;
+}
+
+
+/* back button*/
+
+#back-button {
+    position: fixed;
+
+    top: 25px;
+    left: 25px;
+
+    padding: 10px 18px;
+
+    background: transparent;
+
+    color: white;
+
+    border: 1px solid #666;
+
+    font-family: inherit;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    z-index: 101;
+}
+
+
+#back-button:hover {
+    border-color: white;
+
+    background: rgba(255, 255, 255, 0.05);
+}
